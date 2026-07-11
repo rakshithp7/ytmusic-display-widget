@@ -76,3 +76,24 @@ test('compact badge is sized down, not just repositioned', () => {
   expect(banner).toContain('font-size="11" font-weight="600">YT Music');
   expect(compact).toContain('font-size="8" font-weight="600">YT Music');
 });
+
+test('vinyl style renders groove circles and a rotating label', () => {
+  const svg = renderCard(baseData, { ...baseOptions, artStyle: 'vinyl' });
+  expect(svg).toContain('labelClip');
+  expect(svg).toContain('animateTransform');
+});
+
+test('vinyl-speed changes the rotation duration', () => {
+  const slow = renderCard(baseData, { ...baseOptions, artStyle: 'vinyl', vinylSpeed: 'slow' });
+  const fast = renderCard(baseData, { ...baseOptions, artStyle: 'vinyl', vinylSpeed: 'fast' });
+  expect(slow).toContain('dur="10s"');
+  expect(fast).toContain('dur="2.5s"');
+});
+
+test('label-size changes the label radius', () => {
+  const small = renderCard(baseData, { ...baseOptions, artStyle: 'vinyl', labelSize: 'small' });
+  const large = renderCard(baseData, { ...baseOptions, artStyle: 'vinyl', labelSize: 'large' });
+  const smallRadius = small.match(/labelClip"><circle cx="44" cy="44" r="([\d.]+)"/)?.[1];
+  const largeRadius = large.match(/labelClip"><circle cx="44" cy="44" r="([\d.]+)"/)?.[1];
+  expect(Number(largeRadius)).toBeGreaterThan(Number(smallRadius));
+});
