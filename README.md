@@ -29,7 +29,7 @@ A self-committing GitHub Action that renders a "now playing" SVG card from a You
          - uses: <your-username>/ytmusic-display-widget@v1
            with:
              tracks: |
-               https://music.youtube.com/watch?v=4NRXx6U8ABQ
+               https://music.youtube.com/watch?v=JU9TouRnO84
    ```
 
 2. Commit and push that workflow file. It'll run on its schedule, or you can trigger it immediately from your repo's **Actions** tab → this workflow → **Run workflow**.
@@ -37,7 +37,7 @@ A self-committing GitHub Action that renders a "now playing" SVG card from a You
 4. Embed it in your README, wrapping it in a link to the track so clicking it opens YouTube Music:
 
    ```markdown
-   [![now playing](now-playing.svg)](https://music.youtube.com/watch?v=4NRXx6U8ABQ)
+   [![now playing](now-playing.svg)](https://music.youtube.com/watch?v=JU9TouRnO84)
    ```
 
 5. To use a rotating playlist instead of one fixed track, list multiple `tracks` (one per line) and set `mode: sequential` (advances through the list once per run) or leave `mode: random` (default).
