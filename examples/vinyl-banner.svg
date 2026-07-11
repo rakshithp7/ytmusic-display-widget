@@ -33,7 +33,7 @@
     <circle cx="44" cy="44" r="26.66" fill="none" stroke="#000" stroke-opacity="0.6" stroke-width="1.5" />
     <circle cx="44" cy="44" r="2.15" fill="#05070a" />
     </g>
-    <g transform="translate(134, 40)">
+    <g transform="translate(134, 32)">
       <rect x="0" y="0" width="3" height="14" rx="1.5" fill="#7dd3fc">
         <animate attributeName="height" values="4.2;14;4.2" dur="1.1s" repeatCount="indefinite" />
         <animate attributeName="y" values="9.8;0;9.8" dur="1.1s" repeatCount="indefinite" />
