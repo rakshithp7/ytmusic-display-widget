@@ -11,5 +11,8 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
   },
+  // "__tests__" is intentionally excluded — ts-jest compiles test files
+  // independently of this list; including them here breaks ncc's ts-loader
+  // (TS6059, since they fall outside rootDir "src").
   "include": ["src"]
 }
