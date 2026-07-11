@@ -7,6 +7,45 @@ inputs:
   tracks:
     description: 'One or more YouTube/YouTube Music URLs, one per line'
     required: true
+  mode:
+    description: 'random | sequential — how to pick a track when more than one is given'
+    required: false
+    default: 'random'
+  size:
+    description: 'banner | compact'
+    required: false
+    default: 'banner'
+  art-style:
+    description: 'static | vinyl'
+    required: false
+    default: 'static'
+  art-shape:
+    description: 'circle | square — static style only'
+    required: false
+    default: 'circle'
+  accent-color:
+    description: 'Hex color for the equalizer bars and badge'
+    required: false
+    default: '#7dd3fc'
+  vinyl-speed:
+    description: 'slow | normal | fast — vinyl style only'
+    required: false
+    default: 'normal'
+  label-size:
+    description: 'small | large — vinyl style only'
+    required: false
+    default: 'small'
+  output-path:
+    description: 'Path to write the generated SVG'
+    required: false
+    default: 'now-playing.svg'
+  state-path:
+    description: 'Path to the sequential-mode state file'
+    required: false
+    default: '.now-playing-state.json'
+outputs:
+  track-url:
+    description: 'The URL of the track that was rendered this run'
 runs:
   using: 'node20'
   main: 'dist/index.js'
