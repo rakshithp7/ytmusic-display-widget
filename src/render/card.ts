@@ -24,7 +24,7 @@ export function renderCard(data: CardData, options: RenderOptions): string {
   const artistSize = options.size === 'banner' ? 14 : 12;
   const labelFontSize = options.size === 'banner' ? 10 : 8;
   const barHeight = options.size === 'banner' ? 14 : 10;
-  const labelY = height / 2 - (options.size === 'banner' ? 20 : 16);
+  const labelY = height / 2 - (options.size === 'banner' ? 28 : 22);
   const availableTextWidth = width - textX - getBadgeReservedWidth(options.size) - 8;
   const titleY = height / 2 + 8;
   const artistY = titleY + artistSize + 6;
