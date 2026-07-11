@@ -1,0 +1,15 @@
+# .github/workflows/example.yml
+name: Update now-playing card (example)
+on:
+  workflow_dispatch:
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./
+        with:
+          tracks: |
+            https://music.youtube.com/watch?v=4NRXx6U8ABQ

@@ -1,0 +1,66 @@
+<svg width="300" height="80" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="bgBlur"><feGaussianBlur stdDeviation="18" /></filter>
+      <clipPath id="cardClip"><rect x="0" y="0" width="300" height="80" rx="12" /></clipPath>
+    </defs>
+    <g clip-path="url(#cardClip)">
+      <image href="https://i.ytimg.com/vi/4NRXx6U8ABQ/hqdefault.jpg" x="-20" y="-20" width="340" height="120"
+        preserveAspectRatio="xMidYMid slice" filter="url(#bgBlur)" />
+      <rect x="0" y="0" width="300" height="80" fill="#000" opacity="0.45" />
+    </g>
+    <g transform="translate(16, 12)">
+      <clipPath id="discClip"><circle cx="28" cy="28" r="27" /></clipPath>
+    <radialGradient id="discGradient" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#2c2c2c" />
+      <stop offset="100%" stop-color="#040404" />
+    </radialGradient>
+    <g clip-path="url(#discClip)">
+      <circle cx="28" cy="28" r="27" fill="url(#discGradient)" />
+      <g fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="0.6">
+        <circle cx="28" cy="28" r="25.110000000000003" />
+<circle cx="28" cy="28" r="23.22" />
+<circle cx="28" cy="28" r="21.330000000000002" />
+<circle cx="28" cy="28" r="19.439999999999998" />
+      </g>
+    </g>
+    <clipPath id="labelClip"><circle cx="28" cy="28" r="16.74" /></clipPath>
+    <image href="https://i.ytimg.com/vi/4NRXx6U8ABQ/hqdefault.jpg" x="11.260000000000002" y="11.260000000000002"
+      width="33.48" height="33.48" clip-path="url(#labelClip)"
+      preserveAspectRatio="xMidYMid slice">
+      <animateTransform attributeName="transform" type="rotate"
+        from="0 28 28" to="360 28 28" dur="6s" repeatCount="indefinite" />
+    </image>
+    <circle cx="28" cy="28" r="16.74" fill="none" stroke="#000" stroke-opacity="0.6" stroke-width="1.5" />
+    <circle cx="28" cy="28" r="1.35" fill="#05070a" />
+    </g>
+    <g transform="translate(84, 24)">
+      <rect x="0" y="0" width="3" height="10" rx="1.5" fill="#7dd3fc">
+        <animate attributeName="height" values="3;10;3" dur="1.1s" repeatCount="indefinite" />
+        <animate attributeName="y" values="7;0;7" dur="1.1s" repeatCount="indefinite" />
+      </rect>
+<rect x="5.5" y="2" width="3" height="8" rx="1.5" fill="#7dd3fc">
+        <animate attributeName="height" values="3.5;8;3.5" dur="0.9s" repeatCount="indefinite" />
+        <animate attributeName="y" values="6.5;2;6.5" dur="0.9s" repeatCount="indefinite" />
+      </rect>
+<rect x="11" y="1" width="3" height="9" rx="1.5" fill="#7dd3fc">
+        <animate attributeName="height" values="5;9;5" dur="1.3s" repeatCount="indefinite" />
+        <animate attributeName="y" values="5;1;5" dur="1.3s" repeatCount="indefinite" />
+      </rect>
+<rect x="16.5" y="0" width="3" height="10" rx="1.5" fill="#7dd3fc">
+        <animate attributeName="height" values="4.5;10;4.5" dur="1s" repeatCount="indefinite" />
+        <animate attributeName="y" values="5.5;0;5.5" dur="1s" repeatCount="indefinite" />
+      </rect>
+<rect x="22" y="2.5" width="3" height="7.5" rx="1.5" fill="#7dd3fc">
+        <animate attributeName="height" values="4;7.5;4" dur="1.2s" repeatCount="indefinite" />
+        <animate attributeName="y" values="6;2.5;6" dur="1.2s" repeatCount="indefinite" />
+      </rect>
+      <text x="32" y="9" font-family="Poppins, sans-serif" font-size="8"
+        font-weight="600" letter-spacing="1" fill="rgba(255,255,255,0.65)">NOW PLAYING</text>
+    </g>
+    <g transform="translate(84, 48)"><text x="0" y="0" font-family="Poppins, sans-serif" font-size="14" font-weight="700" fill="#fff">Blinding Lights</text></g>
+    <g transform="translate(84, 66)"><text x="0" y="0" font-family="Poppins, sans-serif" font-size="12" font-weight="500" fill="rgba(255,255,255,0.75)">The Weeknd</text></g>
+    <g transform="translate(240, 64)" fill="rgba(255,255,255,0.55)">
+      <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.5 15.5v-7l6.3 3.5-6.3 3.5Z" transform="scale(0.38)" />
+      <text x="11" y="7" font-family="Poppins, sans-serif" font-size="8" font-weight="600">YT Music</text>
+    </g>
+  </svg>
