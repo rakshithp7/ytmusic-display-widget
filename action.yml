@@ -1,0 +1,12 @@
+name: 'YTMusicDisplayWidget'
+description: 'Render a YouTube Music now-playing SVG card for your README'
+branding:
+  icon: 'music'
+  color: 'red'
+inputs:
+  tracks:
+    description: 'One or more YouTube/YouTube Music URLs, one per line'
+    required: true
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
