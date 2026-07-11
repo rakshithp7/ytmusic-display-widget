@@ -57,3 +57,22 @@ test('includes a YT Music badge', () => {
   const svg = renderCard(baseData, baseOptions);
   expect(svg).toContain('YT Music');
 });
+
+test('short title/artist render statically without a scrolling animation', () => {
+  const svg = renderCard(baseData, baseOptions);
+  expect(svg).not.toContain('animateTransform');
+});
+
+test('a long title scrolls via animateTransform when it overflows the available width', () => {
+  const longTitle = 'A very long song title that will not fit on one line at all';
+  const svg = renderCard({ ...baseData, title: longTitle }, baseOptions);
+  expect(svg).toContain('titleClip');
+  expect(svg).toContain('animateTransform');
+});
+
+test('compact badge is sized down, not just repositioned', () => {
+  const banner = renderCard(baseData, baseOptions);
+  const compact = renderCard(baseData, { ...baseOptions, size: 'compact' });
+  expect(banner).toContain('font-size="11" font-weight="600">YT Music');
+  expect(compact).toContain('font-size="8" font-weight="600">YT Music');
+});
