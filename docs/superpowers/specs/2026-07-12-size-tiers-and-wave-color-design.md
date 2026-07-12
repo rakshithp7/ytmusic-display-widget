@@ -47,11 +47,22 @@ This was validated against real rendered SVGs during design (mockups, not shippe
 - No change to `accent-color`'s role for the neon art style.
 - No change to art-style rendering logic (`vinylArt`, `cassetteArt`, `neonArt`, `vinylSleeveArt`, `staticArt`) — they already scale off `Dimensions.artSize` generically and need no tier-specific changes.
 
+## README restructuring
+
+The current "Examples" table shows every `art-style` at both `banner` and `compact` (two columns per style, 5 styles × 2 sizes = 10 images). With four size tiers that no longer scales as a grid.
+
+New structure:
+
+- **Examples** table shows one column per `art-style`, rendered at `l` only (`l` is the closest equivalent to today's default `banner` and reads best as a showcase size).
+- A new **Sizes** section below it shows the four size tiers side by side (one art style, e.g. `static`, across `s`/`m`/`l`/`xl`), so readers can see the tier differences independent of art style.
+
+This also means the `examples/` directory shrinks from one `<style>-banner.svg` + `<style>-compact.svg` pair per style to one `<style>-l.svg` per style, plus four `sizes-*.svg` files (or similar naming) for the new Sizes section. Exact filenames are an implementation detail for the plan.
+
 ## Implementation notes
 
 `src/render/types.ts`, `dimensions.ts`, `card.ts`, and `badge.ts` were prototyped directly during design (to render real mockups rather than wireframes) and already reflect the tables above. Remaining work for the implementation plan:
 
 - `src/inputs.ts` / `action.yml`: update `size` default (`banner` → `l`, the closest equivalent) and enum documentation; add `wave-color` input defaulting to `accent-color`.
 - Existing tests (`__tests__/render/card.test.ts`, `compactSizes.test.ts`, etc.) reference `banner`/`compact` and the old `RenderOptions` shape (missing `waveColor`) — need updating to the new tiers and to cover the badge placement/reservation rules above.
-- `examples/*.svg` and the README's example table use `banner`/`compact` naming — need regenerating under the new tier names.
+- `examples/*.svg` and the README need regenerating per the [README restructuring](#readme-restructuring) section above.
 - `dist/index.js` needs rebuilding (`npm run build`) once source changes land.
