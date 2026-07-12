@@ -33,6 +33,14 @@ Four size tiers — `s`, `m`, `l`, `xl` — shown here with the `static` style:
 |---|---|---|
 | ![wave color sky](examples/wave-color-sky.svg) | ![wave color pink](examples/wave-color-pink.svg) | ![wave color lime](examples/wave-color-lime.svg) |
 
+## Background modes
+
+`background` is a customization, not a style — it works with any `art-style` (except `neon`, which always keeps its flat backdrop). `blurred` (default) is a soft glass backdrop behind the art; `full` is a crisp edge-to-edge cover image with a scrim, so the album art fills the whole card behind the text:
+
+| `background: blurred` (default) | `background: full` |
+|---|---|
+| ![vinyl blurred background](examples/vinyl-l.svg) | ![vinyl full background](examples/vinyl-background-full-l.svg) |
+
 ## Quick start
 
 1. Add a workflow file to your repo, e.g. `.github/workflows/now-playing.yml`:
@@ -93,14 +101,6 @@ Every option — `art-style`, `size`, colors, speeds — is just another key in 
 ```
 
 Pick any `art-style` value from the [Examples](#examples) table above, then check the Inputs table below for the options that style supports — a few inputs (`vinyl-speed`, `label-size`, `art-shape`, `background`) only affect specific styles and are ignored otherwise.
-
-## Background modes
-
-`background` is a customization, not a style — it works with any `art-style` (except `neon`, which always keeps its flat backdrop). `blurred` (default) is a soft glass backdrop behind the art; `full` is a crisp edge-to-edge cover image with a scrim, so the album art fills the whole card behind the text:
-
-| `background: blurred` (default) | `background: full` |
-|---|---|
-| ![vinyl blurred background](examples/vinyl-l.svg) | ![vinyl full background](examples/vinyl-background-full-l.svg) |
 
 ## Inputs
 
