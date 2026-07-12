@@ -26,7 +26,12 @@ test('vinyl-cover reuses the vinyl art renderer', () => {
   expect(svg).toContain('animateTransform');
 });
 
-test.each(['cassette', 'cd', 'neon', 'vinyl-sleeve'] as const)(
+test('dispatches cassette to renderCassetteArt', () => {
+  const svg = renderArt('data:image/jpeg;base64,AAAA', dims, { ...baseOptions, artStyle: 'cassette' });
+  expect(svg).toContain('cassetteFilm');
+});
+
+test.each(['cd', 'neon', 'vinyl-sleeve'] as const)(
   '%s throws until its own task implements it',
   (style) => {
     expect(() =>

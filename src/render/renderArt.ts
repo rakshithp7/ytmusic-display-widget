@@ -1,6 +1,7 @@
 import { Dimensions, RenderOptions } from './types';
 import { renderStaticArt } from './staticArt';
 import { renderVinylArt } from './vinylArt';
+import { renderCassetteArt } from './cassetteArt';
 
 export function renderArt(
   thumbnailDataUri: string,
@@ -12,7 +13,7 @@ export function renderArt(
     case 'vinyl-cover':
       return renderVinylArt(thumbnailDataUri, dimensions, options.vinylSpeed, options.labelSize);
     case 'cassette':
-      throw new Error('renderArt: cassette style is not implemented yet');
+      return renderCassetteArt(thumbnailDataUri, dimensions, options.vinylSpeed);
     case 'cd':
       throw new Error('renderArt: cd style is not implemented yet');
     case 'neon':
