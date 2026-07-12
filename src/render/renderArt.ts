@@ -4,6 +4,7 @@ import { renderVinylArt } from './vinylArt';
 import { renderCassetteArt } from './cassetteArt';
 import { renderCdArt } from './cdArt';
 import { renderNeonArt } from './neonArt';
+import { renderVinylSleeveArt } from './vinylSleeveArt';
 
 export function renderArt(
   thumbnailDataUri: string,
@@ -21,7 +22,7 @@ export function renderArt(
     case 'neon':
       return renderNeonArt(thumbnailDataUri, dimensions, options.accentColor);
     case 'vinyl-sleeve':
-      throw new Error('renderArt: vinyl-sleeve style is not implemented yet');
+      return renderVinylSleeveArt(thumbnailDataUri, dimensions, options.vinylSpeed, options.labelSize);
     case 'static':
     default:
       return renderStaticArt(thumbnailDataUri, dimensions, options.artShape);
