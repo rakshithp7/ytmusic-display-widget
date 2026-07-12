@@ -7,11 +7,12 @@ export interface CardData {
 
 export interface RenderOptions {
   size: 'banner' | 'compact';
-  artStyle: 'static' | 'vinyl' | 'cassette' | 'neon' | 'vinyl-cover' | 'vinyl-sleeve';
+  artStyle: 'static' | 'vinyl' | 'cassette' | 'neon' | 'vinyl-sleeve';
   artShape: 'circle' | 'square';
   accentColor: string;
   vinylSpeed: 'slow' | 'normal' | 'fast';
   labelSize: 'small' | 'large';
+  background: 'blurred' | 'full';
 }
 
 export interface Dimensions {

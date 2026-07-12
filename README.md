@@ -12,7 +12,6 @@ Every `art-style` at both sizes:
 | `vinyl` | ![vinyl banner](examples/vinyl-banner.svg) | ![vinyl compact](examples/vinyl-compact.svg) |
 | `cassette` | ![cassette banner](examples/cassette-banner.svg) | ![cassette compact](examples/cassette-compact.svg) |
 | `neon` | ![neon banner](examples/neon-banner.svg) | ![neon compact](examples/neon-compact.svg) |
-| `vinyl-cover` | ![vinyl-cover banner](examples/vinyl-cover-banner.svg) | ![vinyl-cover compact](examples/vinyl-cover-compact.svg) |
 | `vinyl-sleeve` | ![vinyl-sleeve banner](examples/vinyl-sleeve-banner.svg) | ![vinyl-sleeve compact](examples/vinyl-sleeve-compact.svg) |
 
 ## Quick start
@@ -62,7 +61,15 @@ Every option — `art-style`, `size`, colors, speeds — is just another key in 
     accent-color: "#ff2ea6"
 ```
 
-Pick any `art-style` value from the [Examples](#examples) table above, then check the Inputs table below for the options that style supports — a few inputs (`vinyl-speed`, `label-size`, `art-shape`) only affect specific styles and are ignored otherwise.
+Pick any `art-style` value from the [Examples](#examples) table above, then check the Inputs table below for the options that style supports — a few inputs (`vinyl-speed`, `label-size`, `art-shape`, `background`) only affect specific styles and are ignored otherwise.
+
+## Background modes
+
+`background` is a customization, not a style — it works with any `art-style` (except `neon`, which always keeps its flat backdrop). `blurred` (default) is a soft glass backdrop behind the art; `full` is a crisp edge-to-edge cover image with a scrim, so the album art fills the whole card behind the text:
+
+| `background: blurred` (default) | `background: full` |
+|---|---|
+| ![vinyl blurred background](examples/vinyl-banner.svg) | ![vinyl full background](examples/vinyl-background-full-banner.svg) |
 
 ## Inputs
 
@@ -71,11 +78,12 @@ Pick any `art-style` value from the [Examples](#examples) table above, then chec
 | `tracks` | *(required)* | One or more YouTube/YouTube Music URLs, one per line |
 | `mode` | `random` | `random` \| `sequential` — which track to pick when more than one is given |
 | `size` | `banner` | `banner` (600×120) \| `compact` (300×80) |
-| `art-style` | `static` | `static` \| `vinyl` \| `cassette` \| `neon` \| `vinyl-cover` \| `vinyl-sleeve` |
+| `art-style` | `static` | `static` \| `vinyl` \| `cassette` \| `neon` \| `vinyl-sleeve` |
 | `art-shape` | `circle` | `circle` \| `square` — `static` style only |
 | `accent-color` | `#7dd3fc` | Hex color for the equalizer bars and badge |
-| `vinyl-speed` | `normal` | `slow` \| `normal` \| `fast` — applies to `vinyl`, `cassette`, `vinyl-cover`, `vinyl-sleeve` |
-| `label-size` | `small` | `small` \| `large` — applies to `vinyl`, `vinyl-cover`, `vinyl-sleeve` |
+| `vinyl-speed` | `normal` | `slow` \| `normal` \| `fast` — applies to `vinyl`, `cassette`, `vinyl-sleeve` |
+| `label-size` | `small` | `small` \| `large` — applies to `vinyl` and `vinyl-sleeve` |
+| `background` | `blurred` | `blurred` \| `full` — see [Background modes](#background-modes). Ignored by `neon` |
 | `output-path` | `now-playing.svg` | Where to write the generated SVG |
 | `state-path` | `.now-playing-state.json` | Where `sequential` mode persists its position |
 

@@ -29,6 +29,7 @@ export function getActionConfig(): ActionConfig {
     accentColor: core.getInput('accent-color') || '#7dd3fc',
     vinylSpeed: (core.getInput('vinyl-speed') || 'normal') as ActionConfig['vinylSpeed'],
     labelSize: (core.getInput('label-size') || 'small') as ActionConfig['labelSize'],
+    background: (core.getInput('background') || 'blurred') as ActionConfig['background'],
     outputPath: core.getInput('output-path') || 'now-playing.svg',
     statePath: core.getInput('state-path') || '.now-playing-state.json',
   };

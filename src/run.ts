@@ -30,6 +30,7 @@ export async function run(): Promise<void> {
         accentColor: config.accentColor,
         vinylSpeed: config.vinylSpeed,
         labelSize: config.labelSize,
+        background: config.background,
       }
     );
 

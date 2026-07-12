@@ -25,6 +25,7 @@ test('applies defaults when optional inputs are omitted', () => {
   expect(config.accentColor).toBe('#7dd3fc');
   expect(config.vinylSpeed).toBe('normal');
   expect(config.labelSize).toBe('small');
+  expect(config.background).toBe('blurred');
   expect(config.outputPath).toBe('now-playing.svg');
   expect(config.statePath).toBe('.now-playing-state.json');
 });
@@ -37,6 +38,7 @@ test('honors explicit overrides', () => {
     'art-style': 'vinyl',
     'vinyl-speed': 'fast',
     'label-size': 'large',
+    background: 'full',
     'output-path': 'card.svg',
   });
   const config = getActionConfig();
@@ -45,6 +47,7 @@ test('honors explicit overrides', () => {
   expect(config.artStyle).toBe('vinyl');
   expect(config.vinylSpeed).toBe('fast');
   expect(config.labelSize).toBe('large');
+  expect(config.background).toBe('full');
   expect(config.outputPath).toBe('card.svg');
 });
 

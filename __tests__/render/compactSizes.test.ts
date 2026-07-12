@@ -13,6 +13,7 @@ const baseOptions = {
   accentColor: '#7dd3fc',
   vinylSpeed: 'normal' as const,
   labelSize: 'small' as const,
+  background: 'blurred' as const,
 };
 
 test('static style renders at compact size without throwing', () => {
@@ -39,8 +40,8 @@ test('neon style renders at compact size without throwing', () => {
   expect(svg.length).toBeGreaterThan(0);
 });
 
-test('vinyl-cover style renders at compact size without throwing', () => {
-  const svg = renderCard(baseData, { ...baseOptions, artStyle: 'vinyl-cover' });
+test('vinyl style with background=full renders at compact size without throwing', () => {
+  const svg = renderCard(baseData, { ...baseOptions, artStyle: 'vinyl', background: 'full' });
   expect(svg).toContain('<svg');
   expect(svg.length).toBeGreaterThan(0);
 });

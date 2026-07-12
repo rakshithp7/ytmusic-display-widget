@@ -14,6 +14,7 @@ const baseOptions = {
   accentColor: '#7dd3fc',
   vinylSpeed: 'normal' as const,
   labelSize: 'small' as const,
+  background: 'blurred' as const,
 };
 
 test('renders banner dimensions', () => {
@@ -115,8 +116,14 @@ test('badge sits at mid-height for banner and at the bottom for compact', () => 
   expect(badgeYOf(compact)).toBe('64');
 });
 
-test('vinyl-cover style has no blur filter reference in its background', () => {
-  const svg = renderCard(baseData, { ...baseOptions, artStyle: 'vinyl-cover' });
+test('background=full has no blur filter reference, works with vinyl style', () => {
+  const svg = renderCard(baseData, { ...baseOptions, artStyle: 'vinyl', background: 'full' });
   expect(svg).not.toContain('url(#bgBlur)');
   expect(svg).toContain('url(#bgScrim)');
+});
+
+test('neon ignores background=full and keeps its flat backdrop', () => {
+  const svg = renderCard(baseData, { ...baseOptions, artStyle: 'neon', background: 'full' });
+  expect(svg).toContain('fill="#08090d"');
+  expect(svg).not.toContain('url(#bgScrim)');
 });

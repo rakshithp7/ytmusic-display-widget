@@ -3,7 +3,8 @@ import { Dimensions, RenderOptions } from './types';
 export function renderBackground(
   thumbnailDataUri: string,
   dimensions: Dimensions,
-  artStyle: RenderOptions['artStyle']
+  artStyle: RenderOptions['artStyle'],
+  background: RenderOptions['background']
 ): string {
   const { width, height } = dimensions;
 
@@ -11,7 +12,7 @@ export function renderBackground(
     return `<rect x="0" y="0" width="${width}" height="${height}" rx="12" fill="#08090d" />`;
   }
 
-  if (artStyle === 'vinyl-cover') {
+  if (background === 'full') {
     return `<g clip-path="url(#cardClip)">
       <image href="${thumbnailDataUri}" x="0" y="0" width="${width}" height="${height}" preserveAspectRatio="xMidYMid slice" />
       <rect x="0" y="0" width="${width}" height="${height}" fill="url(#bgScrim)" />

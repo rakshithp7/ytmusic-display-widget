@@ -3,21 +3,27 @@ import { getDimensions } from '../../src/render/dimensions';
 
 const bannerDim = getDimensions('banner');
 
-test('neon style renders a flat near-black background with no image', () => {
-  const svg = renderBackground('data:image/jpeg;base64,AAAA', bannerDim, 'neon');
+test('neon style renders a flat near-black background with no image, even with background=full', () => {
+  const svg = renderBackground('data:image/jpeg;base64,AAAA', bannerDim, 'neon', 'full');
   expect(svg).toContain('fill="#08090d"');
   expect(svg).not.toContain('<image');
 });
 
-test('vinyl-cover style renders a crisp full-bleed image with a scrim, no blur filter', () => {
-  const svg = renderBackground('data:image/jpeg;base64,AAAA', bannerDim, 'vinyl-cover');
+test('background=full renders a crisp full-bleed image with a scrim, no blur filter', () => {
+  const svg = renderBackground('data:image/jpeg;base64,AAAA', bannerDim, 'static', 'full');
   expect(svg).toContain('<image');
   expect(svg).toContain('url(#bgScrim)');
   expect(svg).not.toContain('url(#bgBlur)');
 });
 
-test('default styles render the blurred-glass background', () => {
-  const svg = renderBackground('data:image/jpeg;base64,AAAA', bannerDim, 'static');
+test('background=full works with any non-neon art style, e.g. vinyl', () => {
+  const svg = renderBackground('data:image/jpeg;base64,AAAA', bannerDim, 'vinyl', 'full');
+  expect(svg).toContain('<image');
+  expect(svg).toContain('url(#bgScrim)');
+});
+
+test('background=blurred renders the blurred-glass background', () => {
+  const svg = renderBackground('data:image/jpeg;base64,AAAA', bannerDim, 'static', 'blurred');
   expect(svg).toContain('url(#bgBlur)');
   expect(svg).toContain('opacity="0.45"');
 });

@@ -9,6 +9,7 @@ const baseOptions = {
   accentColor: '#7dd3fc',
   vinylSpeed: 'normal' as const,
   labelSize: 'small' as const,
+  background: 'blurred' as const,
 };
 
 test('dispatches static to renderStaticArt', () => {
@@ -18,11 +19,6 @@ test('dispatches static to renderStaticArt', () => {
 
 test('dispatches vinyl to renderVinylArt', () => {
   const svg = renderArt('data:image/jpeg;base64,AAAA', dims, { ...baseOptions, artStyle: 'vinyl' });
-  expect(svg).toContain('animateTransform');
-});
-
-test('vinyl-cover reuses the vinyl art renderer', () => {
-  const svg = renderArt('data:image/jpeg;base64,AAAA', dims, { ...baseOptions, artStyle: 'vinyl-cover' });
   expect(svg).toContain('animateTransform');
 });
 

@@ -12,7 +12,6 @@ export function renderArt(
 ): string {
   switch (options.artStyle) {
     case 'vinyl':
-    case 'vinyl-cover':
       return renderVinylArt(thumbnailDataUri, dimensions, options.vinylSpeed, options.labelSize);
     case 'cassette':
       return renderCassetteArt(thumbnailDataUri, dimensions, options.vinylSpeed);

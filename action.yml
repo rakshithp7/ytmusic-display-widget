@@ -16,7 +16,7 @@ inputs:
     required: false
     default: 'banner'
   art-style:
-    description: 'static | vinyl | cassette | neon | vinyl-cover | vinyl-sleeve'
+    description: 'static | vinyl | cassette | neon | vinyl-sleeve'
     required: false
     default: 'static'
   art-shape:
@@ -28,13 +28,17 @@ inputs:
     required: false
     default: '#7dd3fc'
   vinyl-speed:
-    description: 'slow | normal | fast — applies to any spinning style: vinyl, cassette, vinyl-cover, vinyl-sleeve'
+    description: 'slow | normal | fast — applies to any spinning style: vinyl, cassette, vinyl-sleeve'
     required: false
     default: 'normal'
   label-size:
-    description: 'small | large — applies to vinyl, vinyl-cover, and vinyl-sleeve'
+    description: 'small | large — applies to vinyl and vinyl-sleeve'
     required: false
     default: 'small'
+  background:
+    description: 'blurred | full — blurred is a soft glass backdrop behind the art; full is a crisp edge-to-edge cover image with a scrim. Ignored by the neon style, which always uses a flat backdrop.'
+    required: false
+    default: 'blurred'
   output-path:
     description: 'Path to write the generated SVG'
     required: false

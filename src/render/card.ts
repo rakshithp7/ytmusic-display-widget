@@ -18,7 +18,7 @@ export function renderCard(data: CardData, options: RenderOptions): string {
   const textX = artX + artSize + gap;
 
   const artMarkup = renderArt(data.thumbnailDataUri, dimensions, options);
-  const backgroundMarkup = renderBackground(data.thumbnailDataUri, dimensions, options.artStyle);
+  const backgroundMarkup = renderBackground(data.thumbnailDataUri, dimensions, options.artStyle, options.background);
 
   const titleSize = isBanner ? 19 : 14;
   const artistSize = isBanner ? 14 : 12;
