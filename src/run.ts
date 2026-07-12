@@ -28,6 +28,7 @@ export async function run(): Promise<void> {
         artStyle: config.artStyle,
         artShape: config.artShape,
         accentColor: config.accentColor,
+        waveColor: config.waveColor,
         vinylSpeed: config.vinylSpeed,
         labelSize: config.labelSize,
         background: config.background,

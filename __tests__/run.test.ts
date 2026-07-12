@@ -22,12 +22,14 @@ const fs = require('fs');
 const baseConfig = {
   tracks: ['https://music.youtube.com/watch?v=4NRXx6U8ABQ'],
   mode: 'random' as const,
-  size: 'banner' as const,
+  size: 'l' as const,
   artStyle: 'static' as const,
   artShape: 'circle' as const,
   accentColor: '#7dd3fc',
+  waveColor: '#7dd3fc',
   vinylSpeed: 'normal' as const,
   labelSize: 'small' as const,
+  background: 'blurred' as const,
   outputPath: 'now-playing.svg',
   statePath: '.now-playing-state.json',
 };
