@@ -25,6 +25,14 @@ Four size tiers — `s`, `m`, `l`, `xl` — shown here with the `static` style:
 | `l` | 600×120 | ![size l](examples/static-l.svg) |
 | `xl` | 760×150 | ![size xl](examples/static-xl.svg) |
 
+## Wave color
+
+`wave-color` recolors the waveform (`l`/`xl`) or equalizer bars (`s`/`m`) independently of `accent-color`. It defaults to whatever `accent-color` is set to, so existing configs are unaffected until you set it explicitly:
+
+| `wave-color: "#7dd3fc"` (default) | `wave-color: "#ff5c8a"` | `wave-color: "#a3e635"` |
+|---|---|---|
+| ![wave color sky](examples/wave-color-sky.svg) | ![wave color pink](examples/wave-color-pink.svg) | ![wave color lime](examples/wave-color-lime.svg) |
+
 ## Quick start
 
 1. Add a workflow file to your repo, e.g. `.github/workflows/now-playing.yml`:
