@@ -4,15 +4,26 @@ A self-committing GitHub Action that renders a "now playing" SVG card from a You
 
 ## Examples
 
-Every `art-style` at both sizes:
+Every `art-style`, shown at size `l`:
 
-| Style | Banner (600×120) | Compact (300×80) |
+| Style | Example |
+|---|---|
+| `static` | ![static](examples/static-l.svg) |
+| `vinyl` | ![vinyl](examples/vinyl-l.svg) |
+| `cassette` | ![cassette](examples/cassette-l.svg) |
+| `neon` | ![neon](examples/neon-l.svg) |
+| `vinyl-sleeve` | ![vinyl-sleeve](examples/vinyl-sleeve-l.svg) |
+
+## Sizes
+
+Four size tiers — `s`, `m`, `l`, `xl` — shown here with the `static` style:
+
+| Size | Dimensions | Example |
 |---|---|---|
-| `static` | ![static banner](examples/static-banner.svg) | ![static compact](examples/static-compact.svg) |
-| `vinyl` | ![vinyl banner](examples/vinyl-banner.svg) | ![vinyl compact](examples/vinyl-compact.svg) |
-| `cassette` | ![cassette banner](examples/cassette-banner.svg) | ![cassette compact](examples/cassette-compact.svg) |
-| `neon` | ![neon banner](examples/neon-banner.svg) | ![neon compact](examples/neon-compact.svg) |
-| `vinyl-sleeve` | ![vinyl-sleeve banner](examples/vinyl-sleeve-banner.svg) | ![vinyl-sleeve compact](examples/vinyl-sleeve-compact.svg) |
+| `s` | 260×68 | ![size s](examples/static-s.svg) |
+| `m` | 300×80 | ![size m](examples/static-m.svg) |
+| `l` | 600×120 | ![size l](examples/static-l.svg) |
+| `xl` | 760×150 | ![size xl](examples/static-xl.svg) |
 
 ## Quick start
 
@@ -60,7 +71,7 @@ Every `art-style` at both sizes:
 
 ## Choosing a style
 
-Every option — `art-style`, `size`, colors, speeds — is just another key in the same `with:` block as `tracks`, added to the workflow step from Quick start above. For example, to switch to the spinning `vinyl-sleeve` look, render it `compact`, and use a custom accent color:
+Every option — `art-style`, `size`, colors, speeds — is just another key in the same `with:` block as `tracks`, added to the workflow step from Quick start above. For example, to switch to the spinning `vinyl-sleeve` look, render it at size `m`, and use a custom accent and wave color:
 
 ```yaml
 - uses: <your-username>/ytmusic-display-widget@v1
@@ -68,8 +79,9 @@ Every option — `art-style`, `size`, colors, speeds — is just another key in 
     tracks: |
       https://music.youtube.com/watch?v=JU9TouRnO84
     art-style: vinyl-sleeve
-    size: compact
+    size: m
     accent-color: "#ff2ea6"
+    wave-color: "#22d3ee"
 ```
 
 Pick any `art-style` value from the [Examples](#examples) table above, then check the Inputs table below for the options that style supports — a few inputs (`vinyl-speed`, `label-size`, `art-shape`, `background`) only affect specific styles and are ignored otherwise.
@@ -80,7 +92,7 @@ Pick any `art-style` value from the [Examples](#examples) table above, then chec
 
 | `background: blurred` (default) | `background: full` |
 |---|---|
-| ![vinyl blurred background](examples/vinyl-banner.svg) | ![vinyl full background](examples/vinyl-background-full-banner.svg) |
+| ![vinyl blurred background](examples/vinyl-l.svg) | ![vinyl full background](examples/vinyl-background-full-l.svg) |
 
 ## Inputs
 
@@ -88,10 +100,11 @@ Pick any `art-style` value from the [Examples](#examples) table above, then chec
 |---|---|---|
 | `tracks` | *(required)* | One or more YouTube/YouTube Music URLs, one per line |
 | `mode` | `random` | `random` \| `sequential` — which track to pick when more than one is given |
-| `size` | `banner` | `banner` (600×120) \| `compact` (300×80) |
+| `size` | `l` | `s` (260×68) \| `m` (300×80) \| `l` (600×120) \| `xl` (760×150) |
 | `art-style` | `static` | `static` \| `vinyl` \| `cassette` \| `neon` \| `vinyl-sleeve` |
 | `art-shape` | `circle` | `circle` \| `square` — `static` style only |
-| `accent-color` | `#7dd3fc` | Hex color for the equalizer bars and badge |
+| `accent-color` | `#7dd3fc` | Hex color for the neon art style's glow ring; also `wave-color`'s default |
+| `wave-color` | *(= accent-color)* | Hex color for the waveform (`l`/`xl`) or equalizer bars (`s`/`m`) |
 | `vinyl-speed` | `normal` | `slow` \| `normal` \| `fast` — applies to `vinyl`, `cassette`, `vinyl-sleeve` |
 | `label-size` | `small` | `small` \| `large` — applies to `vinyl` and `vinyl-sleeve` |
 | `background` | `blurred` | `blurred` \| `full` — see [Background modes](#background-modes). Ignored by `neon` |
