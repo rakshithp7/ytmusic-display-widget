@@ -33,12 +33,6 @@ test('cassette style renders at compact size without throwing', () => {
   expect(svg.length).toBeGreaterThan(0);
 });
 
-test('cd style renders at compact size without throwing', () => {
-  const svg = renderCard(baseData, { ...baseOptions, artStyle: 'cd' });
-  expect(svg).toContain('<svg');
-  expect(svg.length).toBeGreaterThan(0);
-});
-
 test('neon style renders at compact size without throwing', () => {
   const svg = renderCard(baseData, { ...baseOptions, artStyle: 'neon' });
   expect(svg).toContain('<svg');

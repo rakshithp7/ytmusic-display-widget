@@ -7,7 +7,7 @@ export interface CardData {
 
 export interface RenderOptions {
   size: 'banner' | 'compact';
-  artStyle: 'static' | 'vinyl' | 'cassette' | 'cd' | 'neon' | 'vinyl-cover' | 'vinyl-sleeve';
+  artStyle: 'static' | 'vinyl' | 'cassette' | 'neon' | 'vinyl-cover' | 'vinyl-sleeve';
   artShape: 'circle' | 'square';
   accentColor: string;
   vinylSpeed: 'slow' | 'normal' | 'fast';

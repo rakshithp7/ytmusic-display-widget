@@ -2,7 +2,6 @@ import { Dimensions, RenderOptions } from './types';
 import { renderStaticArt } from './staticArt';
 import { renderVinylArt } from './vinylArt';
 import { renderCassetteArt } from './cassetteArt';
-import { renderCdArt } from './cdArt';
 import { renderNeonArt } from './neonArt';
 import { renderVinylSleeveArt } from './vinylSleeveArt';
 
@@ -17,8 +16,6 @@ export function renderArt(
       return renderVinylArt(thumbnailDataUri, dimensions, options.vinylSpeed, options.labelSize);
     case 'cassette':
       return renderCassetteArt(thumbnailDataUri, dimensions, options.vinylSpeed);
-    case 'cd':
-      return renderCdArt(thumbnailDataUri, dimensions, options.vinylSpeed);
     case 'neon':
       return renderNeonArt(thumbnailDataUri, dimensions, options.accentColor);
     case 'vinyl-sleeve':

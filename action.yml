@@ -16,7 +16,7 @@ inputs:
     required: false
     default: 'banner'
   art-style:
-    description: 'static | vinyl | cassette | cd | neon | vinyl-cover | vinyl-sleeve'
+    description: 'static | vinyl | cassette | neon | vinyl-cover | vinyl-sleeve'
     required: false
     default: 'static'
   art-shape:
@@ -28,7 +28,7 @@ inputs:
     required: false
     default: '#7dd3fc'
   vinyl-speed:
-    description: 'slow | normal | fast — applies to any spinning style: vinyl, cd, cassette, vinyl-cover, vinyl-sleeve'
+    description: 'slow | normal | fast — applies to any spinning style: vinyl, cassette, vinyl-cover, vinyl-sleeve'
     required: false
     default: 'normal'
   label-size:

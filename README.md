@@ -11,7 +11,6 @@ Every `art-style` at both sizes:
 | `static` | ![static banner](examples/static-banner.svg) | ![static compact](examples/static-compact.svg) |
 | `vinyl` | ![vinyl banner](examples/vinyl-banner.svg) | ![vinyl compact](examples/vinyl-compact.svg) |
 | `cassette` | ![cassette banner](examples/cassette-banner.svg) | ![cassette compact](examples/cassette-compact.svg) |
-| `cd` | ![cd banner](examples/cd-banner.svg) | ![cd compact](examples/cd-compact.svg) |
 | `neon` | ![neon banner](examples/neon-banner.svg) | ![neon compact](examples/neon-compact.svg) |
 | `vinyl-cover` | ![vinyl-cover banner](examples/vinyl-cover-banner.svg) | ![vinyl-cover compact](examples/vinyl-cover-compact.svg) |
 | `vinyl-sleeve` | ![vinyl-sleeve banner](examples/vinyl-sleeve-banner.svg) | ![vinyl-sleeve compact](examples/vinyl-sleeve-compact.svg) |
@@ -72,10 +71,10 @@ Pick any `art-style` value from the [Examples](#examples) table above, then chec
 | `tracks` | *(required)* | One or more YouTube/YouTube Music URLs, one per line |
 | `mode` | `random` | `random` \| `sequential` — which track to pick when more than one is given |
 | `size` | `banner` | `banner` (600×120) \| `compact` (300×80) |
-| `art-style` | `static` | `static` \| `vinyl` \| `cassette` \| `cd` \| `neon` \| `vinyl-cover` \| `vinyl-sleeve` |
+| `art-style` | `static` | `static` \| `vinyl` \| `cassette` \| `neon` \| `vinyl-cover` \| `vinyl-sleeve` |
 | `art-shape` | `circle` | `circle` \| `square` — `static` style only |
 | `accent-color` | `#7dd3fc` | Hex color for the equalizer bars and badge |
-| `vinyl-speed` | `normal` | `slow` \| `normal` \| `fast` — applies to `vinyl`, `cd`, `cassette`, `vinyl-cover`, `vinyl-sleeve` |
+| `vinyl-speed` | `normal` | `slow` \| `normal` \| `fast` — applies to `vinyl`, `cassette`, `vinyl-cover`, `vinyl-sleeve` |
 | `label-size` | `small` | `small` \| `large` — applies to `vinyl`, `vinyl-cover`, `vinyl-sleeve` |
 | `output-path` | `now-playing.svg` | Where to write the generated SVG |
 | `state-path` | `.now-playing-state.json` | Where `sequential` mode persists its position |

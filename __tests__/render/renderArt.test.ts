@@ -31,11 +31,6 @@ test('dispatches cassette to renderCassetteArt', () => {
   expect(svg).toContain('cassetteFilm');
 });
 
-test('dispatches cd to renderCdArt', () => {
-  const svg = renderArt('data:image/jpeg;base64,AAAA', dims, { ...baseOptions, artStyle: 'cd' });
-  expect(svg).toContain('cdSheen');
-});
-
 test('dispatches neon to renderNeonArt', () => {
   const svg = renderArt('data:image/jpeg;base64,AAAA', dims, { ...baseOptions, artStyle: 'neon' });
   expect(svg).toContain('neonGlow');
