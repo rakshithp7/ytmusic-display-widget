@@ -1,15 +1,11 @@
 import { Dimensions, RenderOptions } from './types';
 
 export function renderBackground(
-  thumbnailDataUri: string | undefined,
+  thumbnailDataUri: string,
   dimensions: Dimensions,
   artStyle: RenderOptions['artStyle']
 ): string {
   const { width, height } = dimensions;
-
-  if (artStyle === 'minimal') {
-    return `<rect x="0" y="0" width="${width}" height="${height}" rx="12" fill="#0d1117" stroke="#21262d" stroke-width="1" />`;
-  }
 
   if (artStyle === 'neon') {
     return `<rect x="0" y="0" width="${width}" height="${height}" rx="12" fill="#08090d" />`;

@@ -9,21 +9,13 @@ import { renderScrollingText } from './marqueeText';
 export function renderCard(data: CardData, options: RenderOptions): string {
   const dimensions = getDimensions(options.size);
   const { width, height, artSize } = dimensions;
-  const isMinimal = options.artStyle === 'minimal';
   const padding = options.size === 'banner' ? 28 : 16;
   const gap = options.size === 'banner' ? 18 : 12;
   const artX = padding;
   const artY = (height - artSize) / 2;
-  const textX = isMinimal ? padding : artX + artSize + gap;
+  const textX = artX + artSize + gap;
 
-  let artMarkup = '';
-  if (!isMinimal) {
-    const artDataUri = data.thumbnailDataUri;
-    if (artDataUri === undefined) {
-      throw new Error('thumbnailDataUri is required unless art-style is minimal');
-    }
-    artMarkup = renderArt(artDataUri, dimensions, options);
-  }
+  const artMarkup = renderArt(data.thumbnailDataUri, dimensions, options);
   const backgroundMarkup = renderBackground(data.thumbnailDataUri, dimensions, options.artStyle);
 
   const titleSize = options.size === 'banner' ? 19 : 14;
@@ -32,10 +24,8 @@ export function renderCard(data: CardData, options: RenderOptions): string {
   const barHeight = options.size === 'banner' ? 14 : 10;
   const availableTextWidth = width - textX - getBadgeReservedWidth(options.size) - 8;
 
-  const titleY = isMinimal ? height / 2 - (options.size === 'banner' ? 14 : 10) : height / 2 + 8;
-  const labelY = isMinimal
-    ? titleY - (options.size === 'banner' ? 26 : 20)
-    : height / 2 - (options.size === 'banner' ? 28 : 22);
+  const titleY = height / 2 + 8;
+  const labelY = height / 2 - (options.size === 'banner' ? 28 : 22);
   const artistY = titleY + artistSize + 6;
 
   return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
@@ -50,7 +40,7 @@ export function renderCard(data: CardData, options: RenderOptions): string {
       </linearGradient>
     </defs>
     ${backgroundMarkup}
-    ${isMinimal ? '' : `<g transform="translate(${artX}, ${artY})">${artMarkup}</g>`}
+    <g transform="translate(${artX}, ${artY})">${artMarkup}</g>
     <g transform="translate(${textX}, ${labelY})">
       ${renderEqualizerBars(0, 0, barHeight, options.accentColor)}
       <text x="32" y="${barHeight - 1}" font-family="Poppins, sans-serif" font-size="${labelFontSize}"
@@ -58,6 +48,6 @@ export function renderCard(data: CardData, options: RenderOptions): string {
     </g>
     ${renderScrollingText(data.title, textX, titleY, availableTextWidth, titleSize, 700, '#fff', 'titleClip', 0)}
     ${renderScrollingText(data.artist, textX, artistY, availableTextWidth, artistSize, 500, 'rgba(255,255,255,0.75)', 'artistClip', 0.3)}
-    ${renderBadge(dimensions, options.size, isMinimal)}
+    ${renderBadge(dimensions, options.size)}
   </svg>`;
 }

@@ -3,13 +3,6 @@ import { getDimensions } from '../../src/render/dimensions';
 
 const bannerDim = getDimensions('banner');
 
-test('minimal style renders a solid bordered rect background with no image', () => {
-  const svg = renderBackground(undefined, bannerDim, 'minimal');
-  expect(svg).toContain('fill="#0d1117"');
-  expect(svg).toContain('stroke="#21262d"');
-  expect(svg).not.toContain('<image');
-});
-
 test('neon style renders a flat near-black background with no image', () => {
   const svg = renderBackground('data:image/jpeg;base64,AAAA', bannerDim, 'neon');
   expect(svg).toContain('fill="#08090d"');

@@ -14,8 +14,7 @@ export async function run(): Promise<void> {
     const { track, nextState } = selectTrack(config.tracks, config.mode, state);
 
     const metadata = await fetchTrackMetadata(track);
-    const thumbnailDataUri =
-      config.artStyle === 'minimal' ? undefined : await resolveThumbnailDataUri(metadata.videoId);
+    const thumbnailDataUri = await resolveThumbnailDataUri(metadata.videoId);
 
     const svg = renderCard(
       {

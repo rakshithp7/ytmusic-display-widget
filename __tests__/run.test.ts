@@ -76,9 +76,3 @@ test('reports failure via core.setFailed when a step throws', async () => {
   expect(core.setFailed).toHaveBeenCalledWith('oEmbed down');
   expect(commitAndPush).not.toHaveBeenCalled();
 });
-
-test('does not resolve a thumbnail when art-style is minimal', async () => {
-  (getActionConfig as jest.Mock).mockReturnValue({ ...baseConfig, artStyle: 'minimal' });
-  await run();
-  expect(resolveThumbnailDataUri).not.toHaveBeenCalled();
-});

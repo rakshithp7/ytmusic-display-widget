@@ -13,11 +13,7 @@ export function getBadgeReservedWidth(size: 'banner' | 'compact'): number {
   return BADGE_WIDTH[size] + margin;
 }
 
-export function renderBadge(
-  dimensions: Dimensions,
-  size: 'banner' | 'compact',
-  bottomRight = false
-): string {
+export function renderBadge(dimensions: Dimensions, size: 'banner' | 'compact'): string {
   const { width, height } = dimensions;
   const iconScale = size === 'banner' ? 0.55 : 0.38;
   const fontSize = size === 'banner' ? 11 : 8;
@@ -25,8 +21,7 @@ export function renderBadge(
   const textY = size === 'banner' ? 10 : 7;
   const margin = size === 'banner' ? 22 : 10;
   const x = width - BADGE_WIDTH[size] - margin;
-  const forceBottom = bottomRight || size === 'compact';
-  const y = forceBottom ? height - (size === 'banner' ? 26 : 16) : height / 2 - 7;
+  const y = size === 'compact' ? height - 16 : height / 2 - 7;
   return `<g transform="translate(${x}, ${y})" fill="rgba(255,255,255,0.55)">
       <path d="${YT_MUSIC_ICON_PATH}" transform="scale(${iconScale})" />
       <text x="${textX}" y="${textY}" font-family="Poppins, sans-serif" font-size="${fontSize}" font-weight="600">YT Music</text>

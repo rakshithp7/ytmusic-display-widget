@@ -45,12 +45,6 @@ test('neon style renders at compact size without throwing', () => {
   expect(svg.length).toBeGreaterThan(0);
 });
 
-test('minimal style renders at compact size without throwing', () => {
-  const svg = renderCard(baseData, { ...baseOptions, artStyle: 'minimal' });
-  expect(svg).toContain('<svg');
-  expect(svg.length).toBeGreaterThan(0);
-});
-
 test('vinyl-cover style renders at compact size without throwing', () => {
   const svg = renderCard(baseData, { ...baseOptions, artStyle: 'vinyl-cover' });
   expect(svg).toContain('<svg');

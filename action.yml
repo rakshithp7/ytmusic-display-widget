@@ -16,7 +16,7 @@ inputs:
     required: false
     default: 'banner'
   art-style:
-    description: 'static | vinyl | cassette | cd | neon | minimal | vinyl-cover | vinyl-sleeve'
+    description: 'static | vinyl | cassette | cd | neon | vinyl-cover | vinyl-sleeve'
     required: false
     default: 'static'
   art-shape:

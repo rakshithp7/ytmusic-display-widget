@@ -98,35 +98,15 @@ test('label-size changes the label radius', () => {
   expect(Number(largeRadius)).toBeGreaterThan(Number(smallRadius));
 });
 
-test('minimal style renders no art at all', () => {
-  const svg = renderCard({ ...baseData, thumbnailDataUri: undefined }, { ...baseOptions, artStyle: 'minimal' });
-  expect(svg).not.toContain('<image');
-});
-
-test('minimal style still renders the title, artist, and badge', () => {
-  const svg = renderCard({ ...baseData, thumbnailDataUri: undefined }, { ...baseOptions, artStyle: 'minimal' });
-  expect(svg).toContain('Blinding Lights');
-  expect(svg).toContain('The Weeknd');
-  expect(svg).toContain('YT Music');
-});
-
-test('minimal style badge moves to bottom-right at banner size, like compact does', () => {
+test('badge sits at mid-height for banner and at the bottom for compact', () => {
   const badgeYOf = (svg: string) =>
     svg.match(/<g transform="translate\(\d+, (-?[\d.]+)\)" fill="rgba\(255,255,255,0\.55\)">/)?.[1];
 
-  const normalBanner = renderCard(baseData, baseOptions);
-  const minimalBanner = renderCard(
-    { ...baseData, thumbnailDataUri: undefined },
-    { ...baseOptions, artStyle: 'minimal' }
-  );
-  const normalCompact = renderCard(baseData, { ...baseOptions, size: 'compact' });
+  const banner = renderCard(baseData, baseOptions);
+  const compact = renderCard(baseData, { ...baseOptions, size: 'compact' });
 
-  // Non-minimal banner badge sits at mid-height.
-  expect(badgeYOf(normalBanner)).toBe('53');
-  // Minimal banner badge is forced to the bottom, same rule compact uses.
-  expect(badgeYOf(minimalBanner)).toBe('94');
-  expect(badgeYOf(minimalBanner)).not.toBe(badgeYOf(normalBanner));
-  expect(badgeYOf(normalCompact)).toBe('64');
+  expect(badgeYOf(banner)).toBe('53');
+  expect(badgeYOf(compact)).toBe('64');
 });
 
 test('vinyl-cover style has no blur filter reference in its background', () => {
