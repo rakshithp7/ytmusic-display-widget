@@ -6,10 +6,11 @@ export interface CardData {
 }
 
 export interface RenderOptions {
-  size: 'banner' | 'compact';
+  size: 's' | 'm' | 'l' | 'xl';
   artStyle: 'static' | 'vinyl' | 'cassette' | 'neon' | 'vinyl-sleeve';
   artShape: 'circle' | 'square';
   accentColor: string;
+  waveColor: string;
   vinylSpeed: 'slow' | 'normal' | 'fast';
   labelSize: 'small' | 'large';
   background: 'blurred' | 'full';
