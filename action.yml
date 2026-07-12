@@ -12,9 +12,9 @@ inputs:
     required: false
     default: 'random'
   size:
-    description: 'banner | compact'
+    description: 's | m | l | xl'
     required: false
-    default: 'banner'
+    default: 'l'
   art-style:
     description: 'static | vinyl | cassette | neon | vinyl-sleeve'
     required: false
@@ -24,9 +24,13 @@ inputs:
     required: false
     default: 'circle'
   accent-color:
-    description: 'Hex color for the equalizer bars and badge'
+    description: 'Hex color for the neon art style glow ring. Also the default for wave-color if that is not set.'
     required: false
     default: '#7dd3fc'
+  wave-color:
+    description: 'Hex color for the waveform (l/xl) or equalizer bars (s/m). Defaults to accent-color.'
+    required: false
+    default: ''
   vinyl-speed:
     description: 'slow | normal | fast — applies to any spinning style: vinyl, cassette, vinyl-sleeve'
     required: false
