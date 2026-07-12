@@ -38,7 +38,7 @@
     <circle cx="44" cy="44" r="2.15" fill="#05070a" /></g>
     
     <g transform="translate(134, 42)"><text x="0" y="0" font-family="Poppins, sans-serif" font-size="19" font-weight="700" fill="#fff">Queen – Bohemian Rhapsody</text></g>
-    <g transform="translate(134, 62)"><text x="0" y="0" font-family="Poppins, sans-serif" font-size="14" font-weight="500" fill="rgba(255,255,255,0.75)">Queen Official</text></g>
+    <g transform="translate(134, 62)"><text x="0" y="0" font-family="Poppins, sans-serif" font-size="14" font-weight="500" fill="rgba(255,255,255,0.75)">Queen</text></g>
     <rect x="134" y="97" width="4" height="9" rx="2" fill="#7dd3fc" opacity="0.9">
       <animate attributeName="height" values="3.15;9;3.15" dur="0.90s" repeatCount="indefinite" begin="-0.00s" />
       <animate attributeName="y" values="102.85;97;102.85" dur="0.90s" repeatCount="indefinite" begin="-0.00s" />

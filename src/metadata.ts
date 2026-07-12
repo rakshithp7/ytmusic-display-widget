@@ -47,6 +47,13 @@ export function cleanTitle(rawTitle: string): string {
   return title;
 }
 
+export function cleanArtist(rawArtist: string): string {
+  return rawArtist
+    .replace(/\s*-\s*Topic$/, '')
+    .replace(/\s+Official$/i, '')
+    .trim();
+}
+
 export async function fetchTrackMetadata(url: string): Promise<TrackMetadata> {
   const videoId = extractVideoId(url);
   const oembedUrl = `https://www.youtube.com/oembed?url=${encodeURIComponent(url)}&format=json`;
@@ -55,6 +62,5 @@ export async function fetchTrackMetadata(url: string): Promise<TrackMetadata> {
     throw new Error(`oEmbed request failed for ${url}: ${response.status}`);
   }
   const data = (await response.json()) as OEmbedResponse;
-  const artist = data.author_name.replace(/\s*-\s*Topic$/, '');
-  return { videoId, title: cleanTitle(data.title), artist };
+  return { videoId, title: cleanTitle(data.title), artist: cleanArtist(data.author_name) };
 }

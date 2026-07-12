@@ -71,7 +71,7 @@
         dur="15s" begin="0s" repeatCount="indefinite" calcMode="linear" />
     </g>
   </g>
-    <g transform="translate(84, 66)"><text x="0" y="0" font-family="Poppins, sans-serif" font-size="12" font-weight="500" fill="rgba(255,255,255,0.75)">Queen Official</text></g>
+    <g transform="translate(84, 66)"><text x="0" y="0" font-family="Poppins, sans-serif" font-size="12" font-weight="500" fill="rgba(255,255,255,0.75)">Queen</text></g>
     
     <g transform="translate(240, 64)" fill="rgba(255,255,255,0.55)">
       <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.5 15.5v-7l6.3 3.5-6.3 3.5Z" transform="scale(0.38)" />

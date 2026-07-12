@@ -1,4 +1,4 @@
-import { extractVideoId, fetchTrackMetadata, cleanTitle } from '../src/metadata';
+import { extractVideoId, fetchTrackMetadata, cleanTitle, cleanArtist } from '../src/metadata';
 
 describe('extractVideoId', () => {
   test('extracts the ID from a youtube.com URL', () => {
@@ -49,6 +49,24 @@ describe('cleanTitle', () => {
     expect(cleanTitle('Song Title (feat. Someone)')).toBe('Song Title (feat. Someone)');
     expect(cleanTitle('Song Title (Remix)')).toBe('Song Title (Remix)');
     expect(cleanTitle('Song Title (Live)')).toBe('Song Title (Live)');
+  });
+});
+
+describe('cleanArtist', () => {
+  test('strips the "- Topic" suffix', () => {
+    expect(cleanArtist('The Weeknd - Topic')).toBe('The Weeknd');
+  });
+
+  test('strips a trailing "Official" tag', () => {
+    expect(cleanArtist('Queen Official')).toBe('Queen');
+  });
+
+  test('leaves an artist name with no cruft unchanged', () => {
+    expect(cleanArtist('Rick Astley')).toBe('Rick Astley');
+  });
+
+  test('leaves a glued-together channel name like "TheWeekndVEVO" unchanged', () => {
+    expect(cleanArtist('TheWeekndVEVO')).toBe('TheWeekndVEVO');
   });
 });
 
