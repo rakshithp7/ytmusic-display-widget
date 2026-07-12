@@ -9,6 +9,18 @@ A self-committing GitHub Action that renders a "now playing" SVG card from a You
 | `banner` (600×120) | ![static banner](examples/static-banner.svg) | ![vinyl banner](examples/vinyl-banner.svg) |
 | `compact` (300×80) | ![static compact](examples/static-compact.svg) | ![vinyl compact](examples/vinyl-compact.svg) |
 
+### More styles
+
+All shown at `size: banner` — every style also supports `size: compact`, same as `static`/`vinyl` above.
+
+| `art-style: cassette` | `art-style: cd` | `art-style: neon` |
+|---|---|---|
+| ![cassette](examples/cassette-banner.svg) | ![cd](examples/cd-banner.svg) | ![neon](examples/neon-banner.svg) |
+
+| `art-style: minimal` | `art-style: vinyl-cover` | `art-style: vinyl-sleeve` |
+|---|---|---|
+| ![minimal](examples/minimal-banner.svg) | ![vinyl-cover](examples/vinyl-cover-banner.svg) | ![vinyl-sleeve](examples/vinyl-sleeve-banner.svg) |
+
 ## Quick start
 
 1. Add a workflow file to your repo, e.g. `.github/workflows/now-playing.yml`:
@@ -49,11 +61,11 @@ A self-committing GitHub Action that renders a "now playing" SVG card from a You
 | `tracks` | *(required)* | One or more YouTube/YouTube Music URLs, one per line |
 | `mode` | `random` | `random` \| `sequential` — which track to pick when more than one is given |
 | `size` | `banner` | `banner` (600×120) \| `compact` (300×80) |
-| `art-style` | `static` | `static` \| `vinyl` |
+| `art-style` | `static` | `static` \| `vinyl` \| `cassette` \| `cd` \| `neon` \| `minimal` \| `vinyl-cover` \| `vinyl-sleeve` |
 | `art-shape` | `circle` | `circle` \| `square` — `static` style only |
 | `accent-color` | `#7dd3fc` | Hex color for the equalizer bars and badge |
-| `vinyl-speed` | `normal` | `slow` \| `normal` \| `fast` — `vinyl` style only |
-| `label-size` | `small` | `small` \| `large` — `vinyl` style only |
+| `vinyl-speed` | `normal` | `slow` \| `normal` \| `fast` — applies to `vinyl`, `cd`, `cassette`, `vinyl-cover`, `vinyl-sleeve` |
+| `label-size` | `small` | `small` \| `large` — applies to `vinyl`, `vinyl-cover`, `vinyl-sleeve` |
 | `output-path` | `now-playing.svg` | Where to write the generated SVG |
 | `state-path` | `.now-playing-state.json` | Where `sequential` mode persists its position |
 
