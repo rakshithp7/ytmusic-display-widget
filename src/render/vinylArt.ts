@@ -1,15 +1,6 @@
 import { Dimensions, RenderOptions } from './types';
-
-const SPEED_SECONDS: Record<RenderOptions['vinylSpeed'], number> = {
-  slow: 10,
-  normal: 6,
-  fast: 2.5,
-};
-
-const LABEL_RATIO: Record<RenderOptions['labelSize'], number> = {
-  small: 0.62,
-  large: 0.78,
-};
+import { getSpinSeconds } from './spinSpeed';
+import { getLabelRatio } from './labelRatio';
 
 export function renderVinylArt(
   thumbnailDataUri: string,
@@ -20,10 +11,10 @@ export function renderVinylArt(
   const { artSize } = dimensions;
   const c = artSize / 2;
   const discRadius = c - 1;
-  const labelRadius = discRadius * LABEL_RATIO[labelSize];
+  const labelRadius = discRadius * getLabelRatio(labelSize);
   const labelSpan = labelRadius * 2;
   const spindleRadius = discRadius * 0.05;
-  const seconds = SPEED_SECONDS[vinylSpeed];
+  const seconds = getSpinSeconds(vinylSpeed);
   const grooveRadii = [0.93, 0.86, 0.79, 0.72, 0.65, 0.58]
     .map((ratio) => discRadius * ratio)
     .filter((r) => r > labelRadius + 2);
