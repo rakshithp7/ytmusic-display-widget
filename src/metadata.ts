@@ -17,6 +17,36 @@ export function extractVideoId(url: string): string {
   return match[1];
 }
 
+const CRUFT_WORDS = new Set([
+  'official',
+  'video',
+  'audio',
+  'music',
+  'lyric',
+  'lyrics',
+  'visualizer',
+  'remaster',
+  'remastered',
+  '4k',
+  'hd',
+  'hq',
+]);
+
+function isCruftBracket(content: string): boolean {
+  const words = content.toLowerCase().split(/\s+/).filter(Boolean);
+  return words.length > 0 && words.every((word) => CRUFT_WORDS.has(word));
+}
+
+export function cleanTitle(rawTitle: string): string {
+  let title = rawTitle.trim();
+  let match = title.match(/[([]([^()[\]]*)[)\]]\s*$/);
+  while (match && isCruftBracket(match[1])) {
+    title = title.slice(0, match.index).trim();
+    match = title.match(/[([]([^()[\]]*)[)\]]\s*$/);
+  }
+  return title;
+}
+
 export async function fetchTrackMetadata(url: string): Promise<TrackMetadata> {
   const videoId = extractVideoId(url);
   const oembedUrl = `https://www.youtube.com/oembed?url=${encodeURIComponent(url)}&format=json`;
@@ -26,5 +56,5 @@ export async function fetchTrackMetadata(url: string): Promise<TrackMetadata> {
   }
   const data = (await response.json()) as OEmbedResponse;
   const artist = data.author_name.replace(/\s*-\s*Topic$/, '');
-  return { videoId, title: data.title, artist };
+  return { videoId, title: cleanTitle(data.title), artist };
 }

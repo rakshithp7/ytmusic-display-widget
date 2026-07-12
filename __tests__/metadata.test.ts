@@ -1,4 +1,4 @@
-import { extractVideoId, fetchTrackMetadata } from '../src/metadata';
+import { extractVideoId, fetchTrackMetadata, cleanTitle } from '../src/metadata';
 
 describe('extractVideoId', () => {
   test('extracts the ID from a youtube.com URL', () => {
@@ -13,6 +13,42 @@ describe('extractVideoId', () => {
     expect(() => extractVideoId('https://example.com/not-youtube')).toThrow(
       'Could not extract a YouTube video ID'
     );
+  });
+});
+
+describe('cleanTitle', () => {
+  test('strips a trailing "(Official Video)" tag', () => {
+    expect(cleanTitle('Adele - Rolling in the Deep (Official Music Video)')).toBe(
+      'Adele - Rolling in the Deep'
+    );
+  });
+
+  test('strips stacked tags one at a time', () => {
+    expect(cleanTitle('Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)')).toBe(
+      'Rick Astley - Never Gonna Give You Up'
+    );
+  });
+
+  test('strips a mixed-word cruft bracket regardless of word order', () => {
+    expect(cleanTitle('Queen – Bohemian Rhapsody (Official Video Remastered)')).toBe(
+      'Queen – Bohemian Rhapsody'
+    );
+  });
+
+  test('strips square-bracket cruft tags too', () => {
+    expect(cleanTitle('Wiz Khalifa - See You Again [Official Video]')).toBe(
+      'Wiz Khalifa - See You Again'
+    );
+  });
+
+  test('leaves a title with no cruft tags unchanged', () => {
+    expect(cleanTitle('Alan Walker - Faded')).toBe('Alan Walker - Faded');
+  });
+
+  test('does not strip a meaningful trailing tag like "(feat. Artist)" or "(Remix)"', () => {
+    expect(cleanTitle('Song Title (feat. Someone)')).toBe('Song Title (feat. Someone)');
+    expect(cleanTitle('Song Title (Remix)')).toBe('Song Title (Remix)');
+    expect(cleanTitle('Song Title (Live)')).toBe('Song Title (Live)');
   });
 });
 

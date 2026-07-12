@@ -37,16 +37,7 @@
     <circle cx="44" cy="44" r="26.66" fill="none" stroke="#000" stroke-opacity="0.6" stroke-width="1.5" />
     <circle cx="44" cy="44" r="2.15" fill="#05070a" /></g>
     
-    <clipPath id="titleClip"><rect x="0" y="-19" width="358" height="26.599999999999998" /></clipPath>
-  <g transform="translate(134, 42)" clip-path="url(#titleClip)">
-    <g>
-      <text x="0" y="0" font-family="Poppins, sans-serif" font-size="19" font-weight="700" fill="#fff">Queen – Bohemian Rhapsody (Official Video Remastered)</text>
-      <animateTransform attributeName="transform" type="translate"
-        values="0,0; 0,0; -199.85000000000002,0; -199.85000000000002,0; 0,0"
-        keyTimes="0; 0.1; 0.5; 0.6; 1"
-        dur="15s" begin="0s" repeatCount="indefinite" calcMode="linear" />
-    </g>
-  </g>
+    <g transform="translate(134, 42)"><text x="0" y="0" font-family="Poppins, sans-serif" font-size="19" font-weight="700" fill="#fff">Queen – Bohemian Rhapsody</text></g>
     <g transform="translate(134, 62)"><text x="0" y="0" font-family="Poppins, sans-serif" font-size="14" font-weight="500" fill="rgba(255,255,255,0.75)">Queen Official</text></g>
     <rect x="134" y="97" width="4" height="9" rx="2" fill="#7dd3fc" opacity="0.9">
       <animate attributeName="height" values="3.15;9;3.15" dur="0.90s" repeatCount="indefinite" begin="-0.00s" />

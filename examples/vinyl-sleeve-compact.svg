@@ -70,14 +70,15 @@
     <clipPath id="titleClip"><rect x="0" y="-14" width="148" height="19.599999999999998" /></clipPath>
   <g transform="translate(84, 48)" clip-path="url(#titleClip)">
     <g>
-      <text x="0" y="0" font-family="Poppins, sans-serif" font-size="14" font-weight="700" fill="#fff">Ed Sheeran - Shape of You (Official Music Video)</text>
+      <text x="0" y="0" font-family="Poppins, sans-serif" font-size="14" font-weight="700" fill="#fff">Ed Sheeran - Shape of You</text>
       <animateTransform attributeName="transform" type="translate"
-        values="0,0; 0,0; -225.60000000000002,0; -225.60000000000002,0; 0,0"
+        values="0,0; 0,0; -48.50000000000003,0; -48.50000000000003,0; 0,0"
         keyTimes="0; 0.1; 0.5; 0.6; 1"
         dur="15s" begin="0s" repeatCount="indefinite" calcMode="linear" />
     </g>
   </g>
     <g transform="translate(84, 66)"><text x="0" y="0" font-family="Poppins, sans-serif" font-size="12" font-weight="500" fill="rgba(255,255,255,0.75)">Ed Sheeran</text></g>
+    
     <g transform="translate(240, 64)" fill="rgba(255,255,255,0.55)">
       <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.5 15.5v-7l6.3 3.5-6.3 3.5Z" transform="scale(0.38)" />
       <text x="11" y="7" font-family="Poppins, sans-serif" font-size="8" font-weight="600">YT Music</text>

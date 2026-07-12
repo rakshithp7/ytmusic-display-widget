@@ -45,9 +45,9 @@
     <clipPath id="titleClip"><rect x="0" y="-19" width="358" height="26.599999999999998" /></clipPath>
   <g transform="translate(134, 42)" clip-path="url(#titleClip)">
     <g>
-      <text x="0" y="0" font-family="Poppins, sans-serif" font-size="19" font-weight="700" fill="#fff">Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)</text>
+      <text x="0" y="0" font-family="Poppins, sans-serif" font-size="19" font-weight="700" fill="#fff">Rick Astley - Never Gonna Give You Up</text>
       <animateTransform attributeName="transform" type="translate"
-        values="0,0; 0,0; -356.6,0; -356.6,0; 0,0"
+        values="0,0; 0,0; -32.650000000000034,0; -32.650000000000034,0; 0,0"
         keyTimes="0; 0.1; 0.5; 0.6; 1"
         dur="15s" begin="0s" repeatCount="indefinite" calcMode="linear" />
     </g>
