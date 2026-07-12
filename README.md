@@ -4,10 +4,10 @@ A self-committing GitHub Action that renders a "now playing" SVG card from a You
 
 ## Examples
 
-| `art-style: static` | `art-style: vinyl` |
-|---|---|
-| ![static banner](examples/static-banner.svg) | ![vinyl banner](examples/vinyl-banner.svg) |
-| ![static compact](examples/static-compact.svg) | ![vinyl compact](examples/vinyl-compact.svg) |
+| `size` | `art-style: static` | `art-style: vinyl` |
+|---|---|---|
+| `banner` (600×120) | ![static banner](examples/static-banner.svg) | ![vinyl banner](examples/vinyl-banner.svg) |
+| `compact` (300×80) | ![static compact](examples/static-compact.svg) | ![vinyl compact](examples/vinyl-compact.svg) |
 
 ## Quick start
 
