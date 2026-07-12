@@ -20,13 +20,15 @@ function parseTracks(raw: string): string[] {
 }
 
 export function getActionConfig(): ActionConfig {
+  const accentColor = core.getInput('accent-color') || '#7dd3fc';
   return {
     tracks: parseTracks(core.getInput('tracks', { required: true })),
     mode: (core.getInput('mode') || 'random') as ActionConfig['mode'],
-    size: (core.getInput('size') || 'banner') as ActionConfig['size'],
+    size: (core.getInput('size') || 'l') as ActionConfig['size'],
     artStyle: (core.getInput('art-style') || 'static') as ActionConfig['artStyle'],
     artShape: (core.getInput('art-shape') || 'circle') as ActionConfig['artShape'],
-    accentColor: core.getInput('accent-color') || '#7dd3fc',
+    accentColor,
+    waveColor: core.getInput('wave-color') || accentColor,
     vinylSpeed: (core.getInput('vinyl-speed') || 'normal') as ActionConfig['vinylSpeed'],
     labelSize: (core.getInput('label-size') || 'small') as ActionConfig['labelSize'],
     background: (core.getInput('background') || 'blurred') as ActionConfig['background'],

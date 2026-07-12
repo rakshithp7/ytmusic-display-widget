@@ -1,12 +1,13 @@
 import { renderArt } from '../../src/render/renderArt';
 import { getDimensions } from '../../src/render/dimensions';
 
-const dims = getDimensions('banner');
+const dims = getDimensions('l');
 const baseOptions = {
-  size: 'banner' as const,
+  size: 'l' as const,
   artStyle: 'static' as const,
   artShape: 'circle' as const,
   accentColor: '#7dd3fc',
+  waveColor: '#7dd3fc',
   vinylSpeed: 'normal' as const,
   labelSize: 'small' as const,
   background: 'blurred' as const,
