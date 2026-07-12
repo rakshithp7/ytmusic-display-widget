@@ -110,6 +110,25 @@ test('minimal style still renders the title, artist, and badge', () => {
   expect(svg).toContain('YT Music');
 });
 
+test('minimal style badge moves to bottom-right at banner size, like compact does', () => {
+  const badgeYOf = (svg: string) =>
+    svg.match(/<g transform="translate\(\d+, (-?[\d.]+)\)" fill="rgba\(255,255,255,0\.55\)">/)?.[1];
+
+  const normalBanner = renderCard(baseData, baseOptions);
+  const minimalBanner = renderCard(
+    { ...baseData, thumbnailDataUri: undefined },
+    { ...baseOptions, artStyle: 'minimal' }
+  );
+  const normalCompact = renderCard(baseData, { ...baseOptions, size: 'compact' });
+
+  // Non-minimal banner badge sits at mid-height.
+  expect(badgeYOf(normalBanner)).toBe('53');
+  // Minimal banner badge is forced to the bottom, same rule compact uses.
+  expect(badgeYOf(minimalBanner)).toBe('94');
+  expect(badgeYOf(minimalBanner)).not.toBe(badgeYOf(normalBanner));
+  expect(badgeYOf(normalCompact)).toBe('64');
+});
+
 test('vinyl-cover style has no blur filter reference in its background', () => {
   const svg = renderCard(baseData, { ...baseOptions, artStyle: 'vinyl-cover' });
   expect(svg).not.toContain('url(#bgBlur)');

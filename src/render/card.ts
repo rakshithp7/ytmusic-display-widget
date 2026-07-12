@@ -16,7 +16,14 @@ export function renderCard(data: CardData, options: RenderOptions): string {
   const artY = (height - artSize) / 2;
   const textX = isMinimal ? padding : artX + artSize + gap;
 
-  const artMarkup = isMinimal ? '' : renderArt(data.thumbnailDataUri as string, dimensions, options);
+  let artMarkup = '';
+  if (!isMinimal) {
+    const artDataUri = data.thumbnailDataUri;
+    if (artDataUri === undefined) {
+      throw new Error('thumbnailDataUri is required unless art-style is minimal');
+    }
+    artMarkup = renderArt(artDataUri, dimensions, options);
+  }
   const backgroundMarkup = renderBackground(data.thumbnailDataUri, dimensions, options.artStyle);
 
   const titleSize = options.size === 'banner' ? 19 : 14;
