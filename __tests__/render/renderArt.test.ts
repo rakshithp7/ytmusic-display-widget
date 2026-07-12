@@ -36,7 +36,12 @@ test('dispatches cd to renderCdArt', () => {
   expect(svg).toContain('cdSheen');
 });
 
-test.each(['neon', 'vinyl-sleeve'] as const)(
+test('dispatches neon to renderNeonArt', () => {
+  const svg = renderArt('data:image/jpeg;base64,AAAA', dims, { ...baseOptions, artStyle: 'neon' });
+  expect(svg).toContain('neonGlow');
+});
+
+test.each(['vinyl-sleeve'] as const)(
   '%s throws until its own task implements it',
   (style) => {
     expect(() =>
