@@ -97,3 +97,21 @@ test('label-size changes the label radius', () => {
   const largeRadius = large.match(/labelClip"><circle cx="44" cy="44" r="([\d.]+)"/)?.[1];
   expect(Number(largeRadius)).toBeGreaterThan(Number(smallRadius));
 });
+
+test('minimal style renders no art at all', () => {
+  const svg = renderCard({ ...baseData, thumbnailDataUri: undefined }, { ...baseOptions, artStyle: 'minimal' });
+  expect(svg).not.toContain('<image');
+});
+
+test('minimal style still renders the title, artist, and badge', () => {
+  const svg = renderCard({ ...baseData, thumbnailDataUri: undefined }, { ...baseOptions, artStyle: 'minimal' });
+  expect(svg).toContain('Blinding Lights');
+  expect(svg).toContain('The Weeknd');
+  expect(svg).toContain('YT Music');
+});
+
+test('vinyl-cover style has no blur filter reference in its background', () => {
+  const svg = renderCard(baseData, { ...baseOptions, artStyle: 'vinyl-cover' });
+  expect(svg).not.toContain('url(#bgBlur)');
+  expect(svg).toContain('url(#bgScrim)');
+});
