@@ -4,22 +4,18 @@ A self-committing GitHub Action that renders a "now playing" SVG card from a You
 
 ## Examples
 
-| `size` | `art-style: static` | `art-style: vinyl` |
+Every `art-style` at both sizes:
+
+| Style | Banner (600×120) | Compact (300×80) |
 |---|---|---|
-| `banner` (600×120) | ![static banner](examples/static-banner.svg) | ![vinyl banner](examples/vinyl-banner.svg) |
-| `compact` (300×80) | ![static compact](examples/static-compact.svg) | ![vinyl compact](examples/vinyl-compact.svg) |
-
-### More styles
-
-All shown at `size: banner` — every style also supports `size: compact`, same as `static`/`vinyl` above.
-
-| `art-style: cassette` | `art-style: cd` | `art-style: neon` |
-|---|---|---|
-| ![cassette](examples/cassette-banner.svg) | ![cd](examples/cd-banner.svg) | ![neon](examples/neon-banner.svg) |
-
-| `art-style: minimal` | `art-style: vinyl-cover` | `art-style: vinyl-sleeve` |
-|---|---|---|
-| ![minimal](examples/minimal-banner.svg) | ![vinyl-cover](examples/vinyl-cover-banner.svg) | ![vinyl-sleeve](examples/vinyl-sleeve-banner.svg) |
+| `static` | ![static banner](examples/static-banner.svg) | ![static compact](examples/static-compact.svg) |
+| `vinyl` | ![vinyl banner](examples/vinyl-banner.svg) | ![vinyl compact](examples/vinyl-compact.svg) |
+| `cassette` | ![cassette banner](examples/cassette-banner.svg) | ![cassette compact](examples/cassette-compact.svg) |
+| `cd` | ![cd banner](examples/cd-banner.svg) | ![cd compact](examples/cd-compact.svg) |
+| `neon` | ![neon banner](examples/neon-banner.svg) | ![neon compact](examples/neon-compact.svg) |
+| `minimal` | ![minimal banner](examples/minimal-banner.svg) | ![minimal compact](examples/minimal-compact.svg) |
+| `vinyl-cover` | ![vinyl-cover banner](examples/vinyl-cover-banner.svg) | ![vinyl-cover compact](examples/vinyl-cover-compact.svg) |
+| `vinyl-sleeve` | ![vinyl-sleeve banner](examples/vinyl-sleeve-banner.svg) | ![vinyl-sleeve compact](examples/vinyl-sleeve-compact.svg) |
 
 ## Quick start
 
@@ -53,6 +49,22 @@ All shown at `size: banner` — every style also supports `size: compact`, same 
    ```
 
 5. To use a rotating playlist instead of one fixed track, list multiple `tracks` (one per line) and set `mode: sequential` (advances through the list once per run) or leave `mode: random` (default).
+
+## Choosing a style
+
+Every option — `art-style`, `size`, colors, speeds — is just another key in the same `with:` block as `tracks`, added to the workflow step from Quick start above. For example, to switch to the spinning `vinyl-sleeve` look, render it `compact`, and use a custom accent color:
+
+```yaml
+- uses: <your-username>/ytmusic-display-widget@v1
+  with:
+    tracks: |
+      https://music.youtube.com/watch?v=JU9TouRnO84
+    art-style: vinyl-sleeve
+    size: compact
+    accent-color: "#ff2ea6"
+```
+
+Pick any `art-style` value from the [Examples](#examples) table above, then check the Inputs table below for the options that style supports — a few inputs (`vinyl-speed`, `label-size`, `art-shape`) only affect specific styles and are ignored otherwise.
 
 ## Inputs
 
