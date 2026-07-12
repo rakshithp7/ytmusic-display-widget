@@ -48,9 +48,15 @@ test('accent color is applied to the equalizer bars', () => {
   expect(svg).toContain('#ff00ff');
 });
 
-test('includes the "NOW PLAYING" label', () => {
-  const svg = renderCard(baseData, baseOptions);
+test('compact includes the "NOW PLAYING" label', () => {
+  const svg = renderCard(baseData, { ...baseOptions, size: 'compact' });
   expect(svg).toContain('NOW PLAYING');
+});
+
+test('banner has no "NOW PLAYING" label and renders a waveform instead', () => {
+  const svg = renderCard(baseData, baseOptions);
+  expect(svg).not.toContain('NOW PLAYING');
+  expect(svg).toContain('<animate attributeName="height"');
 });
 
 test('includes a YT Music badge', () => {

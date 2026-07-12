@@ -3,14 +3,16 @@ import { getDimensions } from './dimensions';
 import { renderArt } from './renderArt';
 import { renderBackground } from './background';
 import { renderEqualizerBars } from './equalizer';
+import { renderWaveform } from './waveform';
 import { renderBadge, getBadgeReservedWidth } from './badge';
 import { renderScrollingText } from './marqueeText';
 
 export function renderCard(data: CardData, options: RenderOptions): string {
   const dimensions = getDimensions(options.size);
   const { width, height, artSize } = dimensions;
-  const padding = options.size === 'banner' ? 28 : 16;
-  const gap = options.size === 'banner' ? 18 : 12;
+  const isBanner = options.size === 'banner';
+  const padding = isBanner ? 28 : 16;
+  const gap = isBanner ? 18 : 12;
   const artX = padding;
   const artY = (height - artSize) / 2;
   const textX = artX + artSize + gap;
@@ -18,15 +20,20 @@ export function renderCard(data: CardData, options: RenderOptions): string {
   const artMarkup = renderArt(data.thumbnailDataUri, dimensions, options);
   const backgroundMarkup = renderBackground(data.thumbnailDataUri, dimensions, options.artStyle);
 
-  const titleSize = options.size === 'banner' ? 19 : 14;
-  const artistSize = options.size === 'banner' ? 14 : 12;
-  const labelFontSize = options.size === 'banner' ? 10 : 8;
-  const barHeight = options.size === 'banner' ? 14 : 10;
+  const titleSize = isBanner ? 19 : 14;
+  const artistSize = isBanner ? 14 : 12;
   const availableTextWidth = width - textX - getBadgeReservedWidth(options.size) - 8;
 
-  const titleY = height / 2 + 8;
-  const labelY = height / 2 - (options.size === 'banner' ? 28 : 22);
+  const titleY = isBanner ? 42 : height / 2 + 8;
   const artistY = titleY + artistSize + 6;
+
+  const bottomMarkup = isBanner
+    ? renderWaveform(textX, artistY + 14, availableTextWidth, height - 14 - (artistY + 14), options.accentColor)
+    : `<g transform="translate(${textX}, ${height / 2 - 22})">
+      ${renderEqualizerBars(0, 0, 10, options.accentColor)}
+      <text x="32" y="9" font-family="Poppins, sans-serif" font-size="8"
+        font-weight="600" letter-spacing="1" fill="rgba(255,255,255,0.65)">NOW PLAYING</text>
+    </g>`;
 
   return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
     <defs>
@@ -41,13 +48,10 @@ export function renderCard(data: CardData, options: RenderOptions): string {
     </defs>
     ${backgroundMarkup}
     <g transform="translate(${artX}, ${artY})">${artMarkup}</g>
-    <g transform="translate(${textX}, ${labelY})">
-      ${renderEqualizerBars(0, 0, barHeight, options.accentColor)}
-      <text x="32" y="${barHeight - 1}" font-family="Poppins, sans-serif" font-size="${labelFontSize}"
-        font-weight="600" letter-spacing="1" fill="rgba(255,255,255,0.65)">NOW PLAYING</text>
-    </g>
+    ${!isBanner ? bottomMarkup : ''}
     ${renderScrollingText(data.title, textX, titleY, availableTextWidth, titleSize, 700, '#fff', 'titleClip', 0)}
     ${renderScrollingText(data.artist, textX, artistY, availableTextWidth, artistSize, 500, 'rgba(255,255,255,0.75)', 'artistClip', 0.3)}
+    ${isBanner ? bottomMarkup : ''}
     ${renderBadge(dimensions, options.size)}
   </svg>`;
 }
