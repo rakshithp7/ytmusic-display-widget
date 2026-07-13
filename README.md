@@ -43,6 +43,8 @@ Four size tiers — `s`, `m`, `l`, `xl` — shown here with the `static` style:
 
 ## Quick start
 
+Also listed on the [GitHub Marketplace](https://github.com/marketplace/actions/ytmusicdisplaywidget) — browse it there or reference it directly by repo and tag (`rakshithp7/ytmusic-display-widget@v1`), same as any other GitHub Action.
+
 1. Add a workflow file to your repo, e.g. `.github/workflows/now-playing.yml`:
 
    ```yaml
@@ -56,7 +58,7 @@ Four size tiers — `s`, `m`, `l`, `xl` — shown here with the `static` style:
          contents: write   # required — the action commits its own output
        steps:
          - uses: actions/checkout@v4
-         - uses: <your-username>/ytmusic-display-widget@v1
+         - uses: rakshithp7/ytmusic-display-widget@v1
            with:
              tracks: |
                https://music.youtube.com/watch?v=JU9TouRnO84
@@ -90,7 +92,7 @@ Four size tiers — `s`, `m`, `l`, `xl` — shown here with the `static` style:
 Every option — `art-style`, `size`, colors, speeds — is just another key in the same `with:` block as `tracks`, added to the workflow step from Quick start above. For example, to switch to the spinning `vinyl-sleeve` look, render it at size `m`, and use a custom accent and wave color:
 
 ```yaml
-- uses: <your-username>/ytmusic-display-widget@v1
+- uses: rakshithp7/ytmusic-display-widget@v1
   with:
     tracks: |
       https://music.youtube.com/watch?v=JU9TouRnO84
