@@ -43,7 +43,7 @@ Four size tiers — `s`, `m`, `l`, `xl` — shown here with the `static` style:
 
 ## Quick start
 
-This action isn't published to the GitHub Marketplace — reference it directly by repo and tag (`rakshithp7/ytmusic-display-widget@v1`), the same as any other GitHub Action on a public repo.
+Also listed on the [GitHub Marketplace](https://github.com/marketplace/actions/ytmusicdisplaywidget) — browse it there or reference it directly by repo and tag (`rakshithp7/ytmusic-display-widget@v1`), same as any other GitHub Action.
 
 1. Add a workflow file to your repo, e.g. `.github/workflows/now-playing.yml`:
 
